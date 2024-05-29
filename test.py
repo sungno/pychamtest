@@ -10,4 +10,5 @@ load_module_from_string("method", method_content)
 from method import *
 print("테스트 수정13!")
 print(a)
+print(b)
 input()

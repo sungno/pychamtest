@@ -1,6 +1,7 @@
-import requests,sys,types
+import requests
+import sys
+import types
 
-# 공통 다운로드 및 로드 기능을 포함한 스크립트에서 필요한 기능을 가져옵니다
 def download_script(url):
     headers = {'Cache-Control': 'no-cache'}
     response = requests.get(url, headers=headers)
@@ -19,11 +20,17 @@ try:
     method_content = download_script(method_url)
     load_module_from_string("method", method_content)
 
-    # 이제 method 모듈을 사용할 수 있습니다
-    from method import *
-    print("테스트 수정13!")
-    print(a)
-    print(b)
+    # account.py 다운로드 및 로드
+    account_url = "https://raw.githubusercontent.com/sungno/pychamtest/main/account.py"
+    account_content = download_script(account_url)
+    load_module_from_string("account", account_content)
+
+    # 이제 account 모듈을 사용하여 account_dic['ja_1'] 출력
+    from account import account_dic
+    print("테스트 수정14!")
+    print(account_dic['ja_1'])
 except Exception as e:
     print(f"An error occurred: {e}")
 
+# 스크립트 끝에서 사용자 입력을 기다려 창이 바로 닫히지 않도록 합니다
+input("Press Enter to exit...")

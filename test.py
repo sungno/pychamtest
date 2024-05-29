@@ -1,5 +1,17 @@
+import requests,sys,types
+
 # 공통 다운로드 및 로드 기능을 포함한 스크립트에서 필요한 기능을 가져옵니다
-from downloader import download_script, load_module_from_string
+def download_script(url):
+    headers = {'Cache-Control': 'no-cache'}
+    response = requests.get(url, headers=headers)
+    response.raise_for_status()
+    return response.text
+
+def load_module_from_string(module_name, module_content):
+    module = types.ModuleType(module_name)
+    exec(module_content, module.__dict__)
+    sys.modules[module_name] = module
+    return module
 
 try:
     # 필요한 모듈 다운로드 및 로드

@@ -1,2 +1,2 @@
 print("test")
-print("연동완료")
+print("연동완료 ")

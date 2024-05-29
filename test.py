@@ -21,7 +21,7 @@ try:
 
     # 이제 method 모듈을 사용할 수 있습니다
     from method import *
-    print("테스트 수정12!")
+    print("테스트 수정13!")
     print(a)
     print(b)
 except Exception as e:

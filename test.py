@@ -1,2 +1,3 @@
-print("test")
-print("연동완료")
+
+print("테스트 수정")
+input()
